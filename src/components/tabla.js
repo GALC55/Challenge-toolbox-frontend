@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useFilesList, useFilesData, useFileByName } from "../services/files";
+import { useFilesData, useFileByName } from "../services/files";
 export function Tabla({ data }) {
   const { data: filesData, error, isLoading } = useFilesData();
 
@@ -8,8 +8,6 @@ export function Tabla({ data }) {
   const { data: fileByData, isLoading: isLoadingByName } =
     useFileByName(searchName);
 
-  console.log("filesData:", filesData);
-  console.log("fileByData:", fileByData);
   const rows = Array.isArray(filesData) ? filesData : [];
   const baseRows =
     searchName && fileByData
@@ -68,8 +66,19 @@ export function Tabla({ data }) {
               className="btn btn-primary"
               onClick={() => setSearchName(inputValue.trim())}
             >
-              Buscar
+              Search
             </button>
+            {searchName && (
+              <button
+                className="btn btn-secondary"
+                onClick={() => {
+                  setSearchName("");
+                  setInputValue("");
+                }}
+              >
+                Clean
+              </button>
+            )}
           </div>
           <table className="table table-hover table-bordered">
             <thead>
