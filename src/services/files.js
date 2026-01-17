@@ -9,3 +9,21 @@ export function useFilesList(queryOptions = {}) {
     queryOptions,
   );
 }
+
+export function useFilesData(queryuOptions = {}) {
+  return useApiQuery(
+    ["files", "data"],
+    "http://localhost:3000/files/data",
+    {},
+    queryuOptions,
+  );
+}
+
+export function useFileByName(fileName, queryOptions = {}) {
+  return useApiQuery(
+    ["files", "data", fileName],
+    `http://localhost:3000/files/data?filename=${encodeURIComponent(fileName)}`,
+    {},
+    queryOptions,
+  );
+}

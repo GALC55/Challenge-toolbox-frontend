@@ -9,3 +9,14 @@
 .h-40 {
     height: 40px;
 }
+
+.bottom-border {
+    /* Override bootstrap's default table header border */
+    border-bottom: 2px solid black !important;
+    font-weight: 700;
+}
+
+.min-vh-60 {
+    min-height: 60vh;
+}
+
