@@ -1,4 +1,12 @@
+import { useFilesList } from "../services/files";
 export function Tabla({ data }) {
+  const { data: filesData, error, isLoading } = useFilesList();
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  console.log("Fetched files data:", filesData);
   return (
     <div className="container mt-4">
       <h2 className="text-white bg-coral p-2" style={{ fontSize: "20px" }}>
