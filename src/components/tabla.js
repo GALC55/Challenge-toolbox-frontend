@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useFilesData, useFileByName } from "../services/files";
-export function Tabla({ data }) {
-  const { data: filesData, error, isLoading } = useFilesData();
+export function Tabla() {
+  const { data: filesData, error, isLoading, refetch } = useFilesData();
 
   const [inputValue, setInputValue] = useState("");
   const [searchName, setSearchName] = useState("");
@@ -45,7 +45,16 @@ export function Tabla({ data }) {
         React Test App
       </h2>
 
-      {isLoading || isLoadingByName ? (
+      {error ? (
+        <div className="d-flex flex-column align-items-center justify-content-center min-vh-60 gap-3">
+          <div className="alert alert-danger mb-0" role="alert">
+            Error loading table, please try again
+          </div>
+          <button className="btn btn-primary" onClick={() => refetch()}>
+            Try again
+          </button>
+        </div>
+      ) : isLoading || isLoadingByName ? (
         <div className="d-flex align-items-center justify-content-center min-vh-60">
           <div className="spinner-border text-primary" role="status"></div>
         </div>
@@ -93,7 +102,7 @@ export function Tabla({ data }) {
               {flatRows.length === 0 ? (
                 <tr>
                   <td colSpan={4} className="text-center text-muted">
-                    No hay datos disponibles
+                    No Data
                   </td>
                 </tr>
               ) : (

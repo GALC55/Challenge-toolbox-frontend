@@ -5,7 +5,6 @@ export const queryClient = new QueryClient();
 export async function fetchJSON(url, options = {}) {
   const { headers, cache, ...rest } = options;
   const res = await fetch(url, {
-    // Prevent conditional requests that can yield 304 in browsers
     cache: cache ?? "no-store",
     headers: {
       Accept: "application/json",
@@ -22,7 +21,6 @@ export async function fetchJSON(url, options = {}) {
         message = data.message || message;
       }
     } catch {}
-    // Helpful hint if the server responded with cache validation
     if (res.status === 304) {
       message =
         "Not Modified (304) — disable request caching or ensure the server returns 200 with a body.";
@@ -43,7 +41,6 @@ export function useApiQuery(
   queryOptions = {},
 ) {
   const key = Array.isArray(queryKey) ? queryKey : [queryKey];
-  console.log("useApiQuery - URL:", url);
   return useQuery({
     queryKey: key,
     queryFn: () => fetchJSON(url, fetchOptions),
