@@ -5,8 +5,11 @@ export function Table() {
 
   const [inputValue, setInputValue] = useState("");
   const [searchName, setSearchName] = useState("");
-  const { data: fileByData, isLoading: isLoadingByName } =
-    useFileByName(searchName);
+  const {
+    data: fileByData,
+    isLoading: isLoadingByName,
+    error: searchError,
+  } = useFileByName(searchName);
 
   const rows = Array.isArray(filesData) ? filesData : [];
   const baseRows =
@@ -45,7 +48,7 @@ export function Table() {
         React Test App
       </h2>
 
-      {error ? (
+      {error && !searchName ? (
         <div className="d-flex flex-column align-items-center justify-content-center min-vh-60 gap-3">
           <div className="alert alert-danger mb-0" role="alert">
             Error loading table, please try again
@@ -99,7 +102,7 @@ export function Table() {
               </tr>
             </thead>
             <tbody>
-              {flatRows.length === 0 ? (
+              {flatRows.length === 0 || searchError ? (
                 <tr>
                   <td colSpan={4} className="text-center text-muted">
                     No Data
