@@ -256,44 +256,6 @@ Hooks personalizados:
 - `fetchJSON(url, options)` - Función fetch mejorada
 - `useApiQuery(key, url, fetchOptions, queryOptions)` - Hook genérico de React Query
 
-## 🧪 Ejemplos de Tests
-
-### Test de Componente
-
-```javascript
-test("debe renderizar el título correctamente", () => {
-  render(<Tabla />);
-  expect(screen.getByText("React Test App")).toBeInTheDocument();
-});
-```
-
-### Test de Hook
-
-```javascript
-test("debe obtener la lista de archivos exitosamente", async () => {
-  const { result } = renderHook(() => useFilesList(), {
-    wrapper: createWrapper(),
-  });
-
-  await waitFor(() => expect(result.current.isSuccess).toBe(true));
-  expect(result.current.data).toEqual(mockFiles);
-});
-```
-
-### Test de Utilidad
-
-```javascript
-test("debe hacer fetch y parsear JSON", async () => {
-  fetch.mockResolvedValueOnce({
-    ok: true,
-    json: async () => ({ data: "test" }),
-  });
-
-  const result = await fetchJSON("http://test.com/api");
-  expect(result).toEqual({ data: "test" });
-});
-```
-
 ## 🐛 Troubleshooting
 
 ### El proyecto no inicia
