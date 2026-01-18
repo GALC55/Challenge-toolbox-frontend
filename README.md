@@ -281,20 +281,6 @@ npm test -- --clearCache
 npm test
 ```
 
-### Puerto 3000 ya está en uso
-
-```bash
-# En Windows
-netstat -ano | findstr :3000
-taskkill /PID <PID> /F
-
-# En macOS/Linux
-lsof -ti:3000 | xargs kill -9
-
-# O cambia el puerto
-PORT=3001 npm start
-```
-
 ### Variables de entorno no se cargan
 
 1. Asegúrate de que el archivo se llama `.env` (no `.env.local` en desarrollo)
