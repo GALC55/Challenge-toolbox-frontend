@@ -2,18 +2,6 @@
 
 Una aplicación React para visualizar y buscar archivos con datos estructurados. El proyecto incluye pruebas unitarias completas con Jest y React Testing Library.
 
-## 📋 Tabla de Contenidos
-
-- [Requisitos Previos](#requisitos-previos)
-- [Instalación](#instalación)
-- [Configuración](#configuración)
-- [Scripts Disponibles](#scripts-disponibles)
-- [Ejecutar el Proyecto](#ejecutar-el-proyecto)
-- [Ejecutar Tests](#ejecutar-tests)
-- [Estructura del Proyecto](#estructura-del-proyecto)
-- [Stack Tecnológico](#stack-tecnológico)
-- [Configuración de Variables de Entorno](#configuración-de-variables-de-entorno)
-
 ## 🔧 Requisitos Previos
 
 Antes de comenzar, asegúrate de tener instalado:
