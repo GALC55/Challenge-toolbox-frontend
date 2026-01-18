@@ -66,7 +66,7 @@ npm start
 ```
 
 - Inicia la aplicación en modo desarrollo
-- Abre automáticamente [http://localhost:3000](http://localhost:3000) en el navegador
+- Abre automáticamente [http://localhost:3000](http://localhost:3000) o [http://localhost:3001](http://localhost:3001) (en caso de que el puerto 3000 ya este ocupado por ejemplo con el backend) en el navegador
 - La aplicación se recargará automáticamente cuando hagas cambios en los archivos
 - Los errores se mostrarán en la consola
 
