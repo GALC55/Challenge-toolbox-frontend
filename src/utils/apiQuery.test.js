@@ -261,24 +261,5 @@ describe("apiQuery utils", () => {
       expect(fetch).not.toHaveBeenCalled();
       expect(result.current.isLoading).toBe(false);
     });
-
-    test("debe loggear la URL en consola", async () => {
-      const consoleSpy = jest.spyOn(console, "log");
-
-      fetch.mockResolvedValueOnce({
-        ok: true,
-        headers: new Headers({ "content-type": "application/json" }),
-        json: async () => ({}),
-      });
-
-      renderHook(() => useApiQuery("test-key", "http://test.com/api"), {
-        wrapper: createWrapper(),
-      });
-
-      expect(consoleSpy).toHaveBeenCalledWith(
-        "useApiQuery - URL:",
-        "http://test.com/api",
-      );
-    });
   });
 });

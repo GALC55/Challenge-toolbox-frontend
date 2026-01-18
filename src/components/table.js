@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useFilesData, useFileByName } from "../services/files";
-export function Tabla() {
+export function Table() {
   const { data: filesData, error, isLoading, refetch } = useFilesData();
 
   const [inputValue, setInputValue] = useState("");

@@ -1,6 +1,6 @@
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { Tabla } from "./table";
+import { Table } from "./table";
 import * as filesService from "../services/files";
 
 // Mock del servicio de archivos
@@ -19,7 +19,7 @@ const createWrapper = () => {
   );
 };
 
-describe("Tabla Component", () => {
+describe("Table Component", () => {
   beforeEach(() => {
     jest.clearAllMocks();
   });
@@ -36,7 +36,7 @@ describe("Tabla Component", () => {
       isLoading: false,
     });
 
-    render(<Tabla />, { wrapper: createWrapper() });
+    render(<Table />, { wrapper: createWrapper() });
     expect(screen.getByText("React Test App")).toBeInTheDocument();
   });
 
@@ -52,7 +52,7 @@ describe("Tabla Component", () => {
       isLoading: false,
     });
 
-    render(<Tabla />, { wrapper: createWrapper() });
+    render(<Table />, { wrapper: createWrapper() });
     expect(screen.getByRole("status")).toBeInTheDocument();
   });
 
@@ -69,7 +69,7 @@ describe("Tabla Component", () => {
       isLoading: false,
     });
 
-    render(<Tabla />, { wrapper: createWrapper() });
+    render(<Table />, { wrapper: createWrapper() });
     expect(
       screen.getByText("Error loading table, please try again"),
     ).toBeInTheDocument();
@@ -91,7 +91,7 @@ describe("Tabla Component", () => {
       isLoading: false,
     });
 
-    render(<Tabla />, { wrapper: createWrapper() });
+    render(<Table />, { wrapper: createWrapper() });
     expect(screen.getByText("No Data")).toBeInTheDocument();
   });
 
@@ -117,7 +117,7 @@ describe("Tabla Component", () => {
       isLoading: false,
     });
 
-    render(<Tabla />, { wrapper: createWrapper() });
+    render(<Table />, { wrapper: createWrapper() });
 
     const fileNames = screen.getAllByText("test.txt");
     expect(fileNames).toHaveLength(2);
@@ -139,7 +139,7 @@ describe("Tabla Component", () => {
       isLoading: false,
     });
 
-    render(<Tabla />, { wrapper: createWrapper() });
+    render(<Table />, { wrapper: createWrapper() });
 
     const input = screen.getByPlaceholderText("File Name");
     const searchButton = screen.getByText("Search");
@@ -167,7 +167,7 @@ describe("Tabla Component", () => {
       isLoading: false,
     });
 
-    render(<Tabla />, { wrapper: createWrapper() });
+    render(<Table />, { wrapper: createWrapper() });
 
     const input = screen.getByPlaceholderText("File Name");
     fireEvent.change(input, { target: { value: "test.txt" } });
@@ -193,7 +193,7 @@ describe("Tabla Component", () => {
       isLoading: false,
     });
 
-    render(<Tabla />, { wrapper: createWrapper() });
+    render(<Table />, { wrapper: createWrapper() });
 
     const input = screen.getByPlaceholderText("File Name");
     fireEvent.change(input, { target: { value: "test.txt" } });
@@ -224,7 +224,7 @@ describe("Tabla Component", () => {
       isLoading: false,
     });
 
-    const { container } = render(<Tabla />, { wrapper: createWrapper() });
+    const { container } = render(<Table />, { wrapper: createWrapper() });
 
     const rows = container.querySelectorAll("tbody tr");
     expect(rows[0]).toHaveClass("table-secondary");

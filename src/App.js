@@ -1,9 +1,9 @@
 //import logo from "./logo.svg";
 import "./App.css";
-import { Tabla } from "./components/table";
+import { Table } from "./components/table";
 
 function App() {
-  return <Tabla />;
+  return <Table />;
 }
 
 export default App;
