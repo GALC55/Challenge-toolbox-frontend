@@ -1,6 +1,6 @@
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { Tabla } from "./tabla";
+import { Tabla } from "./table";
 import * as filesService from "../services/files";
 
 // Mock del servicio de archivos
